@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialogRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/inputOwnerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:hint="Owner Name" />
+
+    <EditText
+        android:id="@+id/inputCardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:hint="Card Number"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/inputExpiryDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:hint="Expiration Date (MM/YY)" />
+
+    <EditText
+        android:id="@+id/inputCVV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:hint="CVV"
+        android:inputType="numberPassword" />
+
+    <RadioGroup
+        android:id="@+id/cardTypeGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/visaOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visa" />
+
+        <RadioButton
+            android:id="@+id/mastercardOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MasterCard" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="12dp">
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,43 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    <gradient-->
+<!--        android:startColor="#FF0000"-->
+<!--    android:endColor="#8B0000"-->
+<!--    android:angle="315"-->
+<!--    android:type="linear" />-->
+
+<!--    &lt;!&ndash; Round only the bottom corners &ndash;&gt;-->
+<!--    <corners-->
+<!--        android:bottomLeftRadius="30dp"-->
+<!--        android:bottomRightRadius="30dp"-->
+<!--        android:topLeftRadius="0dp"-->
+<!--        android:topRightRadius="0dp" />-->
+<!--</shape>-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="360"
+    android:viewportHeight="200">
+
+    <path
+        android:pathData="
+            M0,0
+            L360,0
+            L360,130
+            A180,40 0 0,0 0,130
+            Z" >
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="200"
+                android:endX="360"
+                android:endY="0"
+                android:startColor="#FF0000"
+                android:endColor="#8B0000"
+                android:type="linear" />
+        </aapt:attr>
+    </path>
+
+</vector>
+

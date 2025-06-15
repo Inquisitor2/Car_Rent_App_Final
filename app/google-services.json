@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "187055776352",
+    "project_id": "carrentappdb",
+    "storage_bucket": "carrentappdb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187055776352:android:903dac2f9071ff3fad1905",
+        "android_client_info": {
+          "package_name": "com.example.carrent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6gQcUvyxOK_-TIPLKDj6OVFxUajESlHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
