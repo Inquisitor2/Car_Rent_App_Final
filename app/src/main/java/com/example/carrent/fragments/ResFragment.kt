@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Chronometer
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carrent.adapters.resRVA
@@ -25,7 +24,7 @@ class ResFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentResBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -125,6 +124,25 @@ class ResFragment : Fragment() {
     }
 
 
+//    private fun updateUserBalance(userRef: DatabaseReference, priceToAdd: Double) {
+//        userRef.child("balance").addListenerForSingleValueEvent(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                val currentBalance = snapshot.getValue(Double::class.java) ?: 0.0
+//                val newBalance = currentBalance + priceToAdd
+//
+//                userRef.child("balance").setValue(newBalance).addOnSuccessListener {
+//                    Toast.makeText(requireContext(), "Rent cancelled and balance updated", Toast.LENGTH_SHORT).show()
+//                }.addOnFailureListener {
+//                    Toast.makeText(requireContext(), "Failed to update balance", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Toast.makeText(requireContext(), "Failed to update balance", Toast.LENGTH_SHORT).show()
+//            }
+//        })
+//    }
+
     private fun updateUserBalance(userRef: DatabaseReference, priceToAdd: Double) {
         userRef.child("balance").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -132,17 +150,34 @@ class ResFragment : Fragment() {
                 val newBalance = currentBalance + priceToAdd
 
                 userRef.child("balance").setValue(newBalance).addOnSuccessListener {
-                    Toast.makeText(requireContext(), "Rent cancelled and balance updated", Toast.LENGTH_SHORT).show()
+                    // Now update moneySpent
+                    userRef.child("moneySpent").addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(moneySnapshot: DataSnapshot) {
+                            val currentSpent = moneySnapshot.getValue(Double::class.java) ?: 0.0
+                            val newSpent = (currentSpent - priceToAdd).coerceAtLeast(0.0)
+
+                            userRef.child("moneySpent").setValue(newSpent).addOnSuccessListener {
+                                Toast.makeText(requireContext(), "Rent cancelled, balance and moneySpent updated", Toast.LENGTH_SHORT).show()
+                            }.addOnFailureListener {
+                                Toast.makeText(requireContext(), "Balance updated but failed to update moneySpent", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            Toast.makeText(requireContext(), "Balance updated but failed to access moneySpent", Toast.LENGTH_SHORT).show()
+                        }
+                    })
                 }.addOnFailureListener {
                     Toast.makeText(requireContext(), "Failed to update balance", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(requireContext(), "Failed to update balance", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Failed to access balance", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
 
 
 
