@@ -123,26 +123,6 @@ class ResFragment : Fragment() {
         })
     }
 
-
-//    private fun updateUserBalance(userRef: DatabaseReference, priceToAdd: Double) {
-//        userRef.child("balance").addListenerForSingleValueEvent(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                val currentBalance = snapshot.getValue(Double::class.java) ?: 0.0
-//                val newBalance = currentBalance + priceToAdd
-//
-//                userRef.child("balance").setValue(newBalance).addOnSuccessListener {
-//                    Toast.makeText(requireContext(), "Rent cancelled and balance updated", Toast.LENGTH_SHORT).show()
-//                }.addOnFailureListener {
-//                    Toast.makeText(requireContext(), "Failed to update balance", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                Toast.makeText(requireContext(), "Failed to update balance", Toast.LENGTH_SHORT).show()
-//            }
-//        })
-//    }
-
     private fun updateUserBalance(userRef: DatabaseReference, priceToAdd: Double) {
         userRef.child("balance").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -150,7 +130,6 @@ class ResFragment : Fragment() {
                 val newBalance = currentBalance + priceToAdd
 
                 userRef.child("balance").setValue(newBalance).addOnSuccessListener {
-                    // Now update moneySpent
                     userRef.child("moneySpent").addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(moneySnapshot: DataSnapshot) {
                             val currentSpent = moneySnapshot.getValue(Double::class.java) ?: 0.0

@@ -164,7 +164,6 @@ class debitCardFragment : Fragment() {
             dialog.show()
         }
 
-
         debitCardRVA = debitCardRVA(cardsList) { clickedCard ->
             showAddBalanceDialog(clickedCard)
         }
@@ -178,9 +177,7 @@ class debitCardFragment : Fragment() {
                 .replace(R.id.placeHolder, MainFragment())
                 .commit()
         }
-
     }
-
 
     private fun loadCardsFromFirebase() {
         val sharedPref = requireContext().getSharedPreferences("MyAppPrefs", android.content.Context.MODE_PRIVATE)
@@ -261,10 +258,6 @@ class debitCardFragment : Fragment() {
             }
         })
     }
-
-
-
-
 
     companion object {
         @JvmStatic
