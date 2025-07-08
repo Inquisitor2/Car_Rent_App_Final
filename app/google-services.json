@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "187055776352",
-    "project_id": "carrentappdb",
-    "storage_bucket": "carrentappdb.firebasestorage.app"
+    "project_number": "82452832022",
+    "firebase_url": "https://carrent-e403d-default-rtdb.firebaseio.com",
+    "project_id": "carrent-e403d",
+    "storage_bucket": "carrent-e403d.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:187055776352:android:903dac2f9071ff3fad1905",
+        "mobilesdk_app_id": "1:82452832022:android:dfab99071dc1420a82ba37",
         "android_client_info": {
           "package_name": "com.example.carrent"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA6gQcUvyxOK_-TIPLKDj6OVFxUajESlHk"
+          "current_key": "AIzaSyCp_BBUN4kkijLwrVfKFOFKcrNhBL4DPlk"
         }
       ],
       "services": {
